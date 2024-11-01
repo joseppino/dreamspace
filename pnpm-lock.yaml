@@ -11,9 +11,15 @@ importers:
       '@supabase/supabase-js':
         specifier: ^2.45.6
         version: 2.45.6
+      pocketbase:
+        specifier: ^0.21.5
+        version: 0.21.5
       purecss:
         specifier: ^3.0.0
         version: 3.0.0
+      svelte-french-toast:
+        specifier: ^1.2.0
+        version: 1.2.0(svelte@5.0.5)
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^3.0.0
@@ -464,6 +470,9 @@ packages:
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
+  pocketbase@0.21.5:
+    resolution: {integrity: sha512-bnI/uinnQps+ElSlzxkc4yvwuSFfKcoszDtXH/4QT2FhGq2mJVUvDlxn+rjRXVntUjPfmMG5LEPZ1eGqV6ssog==}
+
   postcss@8.4.47:
     resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
     engines: {node: ^10 || ^12 || >=14}
@@ -505,6 +514,16 @@ packages:
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
+
+  svelte-french-toast@1.2.0:
+    resolution: {integrity: sha512-5PW+6RFX3xQPbR44CngYAP1Sd9oCq9P2FOox4FZffzJuZI2mHOB7q5gJBVnOiLF5y3moVGZ7u2bYt7+yPAgcEQ==}
+    peerDependencies:
+      svelte: ^3.57.0 || ^4.0.0
+
+  svelte-writable-derived@3.1.1:
+    resolution: {integrity: sha512-w4LR6/bYZEuCs7SGr+M54oipk/UQKtiMadyOhW0PTwAtJ/Ai12QS77sLngEcfBx2q4H8ZBQucc9ktSA5sUGZWw==}
+    peerDependencies:
+      svelte: ^3.2.1 || ^4.0.0-next.1 || ^5.0.0-next.94
 
   svelte@5.0.5:
     resolution: {integrity: sha512-f4WBlP5g8W6pEoDfx741lewMlemy+LIGpEqjGPWqnHVP92wqlQXl87U5O5Bi2tkSUrO95OxOoqwU8qlqiHmFKA==}
@@ -926,6 +945,8 @@ snapshots:
 
   picocolors@1.1.1: {}
 
+  pocketbase@0.21.5: {}
+
   postcss@8.4.47:
     dependencies:
       nanoid: 3.3.7
@@ -988,6 +1009,15 @@ snapshots:
       typescript: 5.6.3
     transitivePeerDependencies:
       - picomatch
+
+  svelte-french-toast@1.2.0(svelte@5.0.5):
+    dependencies:
+      svelte: 5.0.5
+      svelte-writable-derived: 3.1.1(svelte@5.0.5)
+
+  svelte-writable-derived@3.1.1(svelte@5.0.5):
+    dependencies:
+      svelte: 5.0.5
 
   svelte@5.0.5:
     dependencies:

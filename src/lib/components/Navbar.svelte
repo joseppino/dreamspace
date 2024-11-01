@@ -1,16 +1,22 @@
+<script lang="ts">
+  let { signedIn = false, email}: { signedIn: boolean, email: string } = $props();
+</script>
+
 <div class="pure-menu pure-menu-horizontal">
-  <a href="#" class="pure-menu-heading pure-menu-link">DREAMSPACE</a>
+  <a href="/" class="pure-menu-heading pure-menu-link">Home <i class="fa-solid fa-home"></i></a>
   <ul class="pure-menu-list">
       <li class="pure-menu-item">
-          <a href="#" class="pure-menu-link">News</a>
+          <a href="/dreamlog" class="pure-menu-link">Dream Log <i class="fa-regular fa-calendar"></i></a>
       </li>
+      {#if !signedIn}
       <li class="pure-menu-item">
-          <a href="#" class="pure-menu-link">Sports</a>
+          <a href="/login" class="pure-menu-link">Sign In <i class="fa-solid fa-right-to-bracket"></i></a>
       </li>
+      {:else}
       <li class="pure-menu-item">
-          <a href="/login" class="pure-menu-link">Log In <i class="fa-solid fa-right-to-bracket"></i></a>
+        <a href="/profile" class="pure-menu-link">Profile <i class="fa-regular fa-user"></i></a>
       </li>
-      <!-- <i class="fa-regular fa-user"></i> -->
+      {/if}
   </ul>
 </div>
 

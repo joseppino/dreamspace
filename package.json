@@ -21,6 +21,8 @@
 	},
 	"dependencies": {
 		"@supabase/supabase-js": "^2.45.6",
-		"purecss": "^3.0.0"
+		"pocketbase": "^0.21.5",
+		"purecss": "^3.0.0",
+		"svelte-french-toast": "^1.2.0"
 	}
 }
