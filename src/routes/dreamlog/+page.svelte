@@ -6,7 +6,7 @@
   if(data.dreams) dreams = data.dreams;
   $inspect(dreams);
 
-  let sortValue: string = $state("Sort");
+  let sortValue: string = $state("Sort ↕");
 
   function sortDreamlog(sortType: string) {
     switch (sortType) {
@@ -33,7 +33,7 @@
     <h2>Dream Log</h2>
     <form class="pure-form">
       <select id="sort-control" bind:value={sortValue} onchange={() => sortDreamlog(sortValue)}>
-          <option selected disabled>Sort</option>
+          <option selected disabled>Sort ↕</option>
           <option value="date-desc">Date ↓</option>
           <option value="date-asc">Date ↑</option>
           <option value="mod-desc">Modified ↓</option>

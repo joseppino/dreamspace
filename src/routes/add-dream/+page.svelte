@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import toast from "svelte-french-toast";
   import type { ActionData } from "./$types";
-  import { goto } from "$app/navigation";
 
   let { form }: { form: ActionData } = $props();
   if(form?.success) {
