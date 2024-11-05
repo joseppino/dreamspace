@@ -2,7 +2,7 @@
   let { signedIn = false, email}: { signedIn: boolean, email: string } = $props();
 </script>
 
-<div class="pure-menu pure-menu-horizontal">
+<header class="pure-menu pure-menu-horizontal">
   <a href="/" class="pure-menu-heading pure-menu-link">Home <i class="fa-solid fa-home"></i></a>
   <ul class="pure-menu-list">
     {#if signedIn}
@@ -24,13 +24,17 @@
     </li>
     {:else}
     <li class="pure-menu-item">
-      <a href="/profile" class="pure-menu-link">Profile <i class="fa-regular fa-user"></i></a>
+      <a href="/profile" class="pure-menu-link">Profile <i class="fa-solid fa-user"></i></a>
     </li>
     {/if}
   </ul>
-</div>
+</header>
 
 <style>
+  header {
+    flex-shrink: 0;
+  }
+
   .pure-menu {
     text-align: center;
     background-color: var(--colour1);

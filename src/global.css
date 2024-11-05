@@ -16,6 +16,15 @@ body {
 }
 
 main {
-  height: 100%;
   margin: 10px 100px;
+  /* some flex wizardry to correctly position footer while  */
+  flex: 1 0 auto; 
+}
+
+a {
+  color: var(--colour3);
+}
+
+a:visited {
+  color: var(--colour3);
 }
