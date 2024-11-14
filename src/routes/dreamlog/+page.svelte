@@ -25,6 +25,15 @@
         break;
     }
   }
+
+  let deleteClicks: number = $state(0);
+
+  function handleDeleteClick() {
+    deleteClicks += 1;
+    setTimeout(() => {
+      deleteClicks = 0;
+    }, 2000);
+  }
   
 </script>
 
@@ -43,7 +52,25 @@
   {#each dreams as dream}
   <div class="dream-header">
     <span class="dream-title">{dream.title}</span>
-    <span>Night of {new Date(dream.date_of_dream).toLocaleDateString()}</span>
+    <span>{dream.type === "day-dream" ? 'Daydream 💭' : 'Dream 🌙'} {new Date(dream.date_of_dream).toLocaleDateString()}</span>
+    <div class="pure-button-group" role="group" aria-label="...">
+      <form method="POST" action="?/view" style="display:contents;">
+        <input type="hidden" name="dreamid-hidden" id="dreamid-hidden" value={dream.uuid}>
+        <button class="pure-button view ctrl-btn" aria-label="edit"><i class="fa-solid fa-up-right-from-square"></i></button>
+      </form>
+      <form method="POST" action="?/edit" style="display:contents;">
+        <input type="hidden" name="dreamid-hidden" id="dreamid-hidden" value={dream.uuid}>
+        <button class="pure-button edit ctrl-btn" aria-label="edit"><i class="fa-solid fa-pen-to-square"></i></button>
+      </form>
+      {#if deleteClicks >= 1}
+      <form method="POST" action="?/delete" style="display:contents;">
+        <input type="hidden" name="dreamid-hidden" id="dreamid-hidden" value={dream.uuid}>
+        <button class="pure-button edit ctrl-btn" aria-label="edit" style="background-color: rgb(202, 60, 60);"><i class="fa-solid fa-trash-can"></i></button>
+      </form>
+      {:else}
+      <button class="pure-button edit ctrl-btn" aria-label="edit" onclick={handleDeleteClick}><i class="fa-solid fa-trash-can"></i></button>
+      {/if}
+    </div>
   </div>
     {#each dream.description.split('\n') as paragraph}
     <p>{paragraph}</p>
@@ -77,5 +104,15 @@
   .dream-title {
     font-size: large;
     font-weight: bold;
+  }
+
+  .ctrl-btn {
+    padding: .25em .5em !important;
+  }
+
+  .view {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    /* margin-right: 1px; */
   }
 </style>

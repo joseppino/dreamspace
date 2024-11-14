@@ -1,7 +1,8 @@
 import { supabase } from '$lib/supabaseClient';
-import type { PageLoad } from "./$types";
+import { redirect } from '@sveltejs/kit';
+import type { Actions, PageLoad } from "./$types";
 
-export const load: PageLoad = async ({ params }) => {
+export const load: PageLoad = async () => {
 
   const { user } = (await supabase.auth.getUser()).data;
   
@@ -11,3 +12,17 @@ export const load: PageLoad = async ({ params }) => {
     dreams: data
 	};
 };
+
+export const actions = {
+  edit: async ({ request }) => {
+    const formData = await request.formData();
+    const dreamid = formData.get("dreamid-hidden");
+    throw redirect(303, `/dream/${dreamid}/edit`);
+  },
+
+  view: async ({ request }) => {
+    const formData = await request.formData();
+    const dreamid = formData.get("dreamid-hidden");
+    throw redirect(303, `/dream/${dreamid}/view`);
+  }
+} satisfies Actions;
